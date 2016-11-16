@@ -261,7 +261,7 @@ qe-iad3-lab02
 605036-infra03
 
 [fcfs-iad3-lab06-network]
-605033-infra01
+605034-infra01
 605034-infra02
 605036-infra03
 
@@ -271,6 +271,11 @@ qe-iad3-lab02
 605039-compute03
 
 [fcfs-iad3-lab06-cinder]
+605040-storage01
+605041-storage02
+605042-storage03
+
+[fcfs-iad3-lab06-swift]
 605040-storage01
 605041-storage02
 605042-storage03
