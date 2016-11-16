@@ -87,13 +87,13 @@ Example: /opt/jenkins-oa/, {0}
                 click.echo('Device hostname: {0}'.format(device.hostname))
                 zone = click.prompt('Zone number')
                 fp.write('''---
-ansible_host: {0}
+ansible_ssh_host: {0}
 member_number: {1}
 zone: {2}
 '''.format(device.private_ip, last_octet(device.private_ip), zone))
             else:
                 fp.write('''---
-ansible_host: {0}
+ansible_ssh_host: {0}
 member_number: {1}
 '''.format(device.private_ip, last_octet(device.private_ip)))
 

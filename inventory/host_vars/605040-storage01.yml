@@ -1,4 +1,4 @@
 ---
-ansible_host: 10.16.80.104
+ansible_ssh_host: 10.16.80.104
 member_number: 104
 zone: 1
