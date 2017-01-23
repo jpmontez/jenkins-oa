@@ -7,3 +7,4 @@
     upgrade: safe
   register: pkgs
   until: pkgs|success
+  retries: 3
