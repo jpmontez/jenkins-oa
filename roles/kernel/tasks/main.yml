@@ -10,6 +10,7 @@
     - linux-image-generic
   register: pkgs
   until: pkgs|success
+  retries: 3
 
 - name: restart machine
   command: shutdown -r now "Ansible kernel updates triggered"
