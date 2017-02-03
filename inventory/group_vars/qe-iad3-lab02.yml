@@ -9,11 +9,12 @@ user_config:
   storage_cidr: 172.20.244.0/22
   used_ips:
     - "172.20.236.1,172.20.236.15"
+    - "172.20.236.49"
     - "172.20.236.170,172.20.236.179"
     - "172.20.240.170,172.20.240.179"
     - "172.20.244.170,172.20.244.179"
-  internal_lb_vip_address: 172.20.236.10
-  external_lb_vip_address: 204.232.187.36
+  internal_lb_vip_address: 172.20.236.49
+  external_lb_vip_address: 204.232.187.32
   tunnel_bridge: br-vxlan
   container_bridge: br-mgmt
   lb_name: 568572-lbal1.qe.iad3.rackspace.com
@@ -66,7 +67,7 @@ user_config:
 tempest_public_provider_net:
   tempest_public_subnet_cidr: "10.224.0.0/24"
   tempest_public_subnet_gateway: "10.224.0.1"
-  tempest_public_net_provider_type: vlan 
+  tempest_public_net_provider_type: vlan
   tempest_public_net_physical_type: vlan
   tempest_public_net_seg_id: 840
   tempest_public_router_external: True
