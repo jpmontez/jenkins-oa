@@ -1,0 +1,9 @@
+[Unit]
+Description=Jenkins swarm client which joins a master.
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/default/jenkins-slave
+ExecStart=/usr/bin/java ${JAVA_ARGS} -jar $JENKINS_SWARM_WAR $JENKINS_SWARM_ARGS
+Restart=always
+RestartSec=10

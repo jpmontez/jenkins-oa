@@ -31,16 +31,19 @@ fi
 if [ -z "$JENKINS_SLAVE" ]; then
     echo "Enter the Jenkins slave name: "
     read -r JENKINS_SLAVE
+    export JENKINS_SLAVE=$JENKINS_SLAVE
 fi
 
 if [ -z "$JENKINS_USERNAME" ]; then
     echo "Enter your GitHub username: "
     read -r JENKINS_USERNAME
+    export JENKINS_USERNAME=$JENKINS_USERNAME
 fi
 
 if [ -z "$JENKINS_TOKEN" ]; then
     echo "Enter your GitHub personal authentication token: "
     read -rs JENKINS_TOKEN
+    export JENKINS_TOKEN=$JENKINS_TOKEN
 fi
 
 # Update and grab curl and make sure we can apt over https
@@ -63,9 +66,8 @@ export SHELL_FORMAT='${JENKINS_MASTER}:${JENKINS_HOME}:${JENKINS_SLAVE}:${JENKIN
 envsubst "$SHELL_FORMAT" < ./scripts/jenkins-slave/jenkins-slave > tmpfile
 mv tmpfile /etc/default/jenkins-slave
 
-cp ./scripts/jenkins-slave/jenkins-slave.init /etc/init.d/jenkins-slave
-chown root:root /etc/init.d/jenkins-slave
-chmod 755 /etc/init.d/jenkins-slave
+cp ./scripts/jenkins-slave/jenkins-slave.service /etc/systemd/system/jenkins-slave.service
+chown root:root /etc/systemd/system/jenkins-slave.service
 
 mkdir -p /opt/jenkins-slave/
 chown -R jenkins:jenkins /opt/jenkins-slave/
@@ -79,4 +81,4 @@ if [[ ! -e /opt/jenkins-slave/swarm-client-${SWARM_VERSION}-jar-with-dependencie
 fi
 
 # Restart daemon under jenkins-slave alias
-service jenkins-slave restart
+systemctl restart jenkins-slave.service
