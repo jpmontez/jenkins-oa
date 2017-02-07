@@ -2,6 +2,7 @@
 lab_name: qe-iad3-lab02
 config_prefix: openstack
 repo_dir: openstack-ansible
+enable_interfaces: False
 
 user_config:
   container_cidr: 172.20.236.0/22
