@@ -14,8 +14,8 @@ user_config:
     - "172.20.236.170,172.20.236.179"
     - "172.20.240.170,172.20.240.179"
     - "172.20.244.170,172.20.244.179"
-  internal_lb_vip_address: 172.20.236.49
-  external_lb_vip_address: 204.232.187.32
+  internal_lb_vip_address: 172.20.236.10
+  external_lb_vip_address: 204.232.187.36
   tunnel_bridge: br-vxlan
   container_bridge: br-mgmt
   lb_name: 568572-lbal1.qe.iad3.rackspace.com
